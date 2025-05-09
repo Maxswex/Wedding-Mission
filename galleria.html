@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -60,10 +59,58 @@
 
   <a class="btn-link" href="index.html">⬅️ Torna alla missione</a>
 
-  <div class="grid">
-    <!-- Foto reali verranno aggiunte qui -->
-  </div>
+  <div class="grid" id="gallery"></div>
 
   <p class="note">La galleria mostra le missioni completate dagli invitati. Per aggiungere altre foto, compila il modulo!</p>
+
+  <script>
+    const SHEET_ID = '1xFeLnPv5krQY7EEOtrI8bZfo790MNI8mt0HabNNZJa4';
+    const SHEET_GID = '922593093';
+    const API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${SHEET_GID}`;
+
+    fetch(API_URL)
+      .then(res => res.text())
+      .then(text => JSON.parse(text.substr(47).slice(0, -2)))
+      .then(data => {
+        const rows = data.table.rows;
+        const gallery = document.getElementById("gallery");
+
+        rows.forEach(row => {
+          const mission = row.c[1]?.v || "";
+          const urlCell = row.c[2]?.v || "";
+
+          let fileId = "";
+
+          if (urlCell.includes("id=")) {
+            fileId = urlCell.split("id=")[1];
+          } else if (urlCell.includes("/file/d/")) {
+            const parts = urlCell.split("/file/d/");
+            if (parts[1]) {
+              fileId = parts[1].split("/")[0];
+            }
+          }
+
+          if (!fileId) return;
+
+          const container = document.createElement("div");
+          container.className = "grid-item";
+
+          const img = document.createElement("img");
+          img.src = `https://drive.google.com/uc?export=view&id=${fileId}`;
+
+          const caption = document.createElement("div");
+          caption.className = "caption";
+          caption.textContent = `📌 Missione: ${mission}`;
+
+          container.appendChild(img);
+          container.appendChild(caption);
+          gallery.appendChild(container);
+        });
+      })
+      .catch(err => {
+        console.error("Errore nel caricamento dati dalla Google Sheet", err);
+      });
+  </script>
 </body>
 </html>
+
