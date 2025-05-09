@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -51,83 +50,14 @@
       "Fotografa un brindisi di gruppo 📸",
       "Scatta una foto in bagno 🚽",
       "Fatti fotografare in manette di fianco alla sposa ⛓️"
-
+      "Fatti fotografare mentre abbracci una statua/pianta 🌴",
+      "Fatti un selfie mentre indossi un accessorio non tuo🎩",
+      "Fatti una foto mentre balli con un parente 👴",
+      "Fatti un selfie mentre baci dell'alcool🍺",
+      "Ricrea la scena del titanic 🚢",
+      "Fai una foto a dei piedi 👣",
+      "Fai una foto con una persona che ha l'abito del tuo stesso colore 👔👗",
       ];
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Missione Matrimonio!</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 2rem;
-      background: #fff0f5;
-    }
-    .mission {
-      font-size: 1.5rem;
-      margin: 2rem 0;
-      background: #ffe4e1;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-    .note {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    .upload-btn, .gallery-btn {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1rem;
-      margin-left: 1rem;
-    }
-  </style>
-  <script>
-    const missions = [
-      "Scatta una foto mentre baci la sposa! 👰‍♀️ (sulla guancia :)",
-      "Scatta una foto mentre baci lo sposo! 🤵‍♂️ (sulla guancia :)"
-      "Fatti un selfie con una persona che non conosci 👀",
-      "Fatti un selfie mentre baci la pelata di Robi 🧑‍🦲",
-      "Fatti una foto con la persona più stupida della festa 😂",
-      "Fai una foto mentre bevi un chupito 🥃",
-      "Fai una foto al tavolo più rumoroso! 🔊",
-      "Scatta una foto a Villa qual'ora sia già ubriaco 🍷",
-      "Fai un selfie con un cameriere 🤵‍♂️",
-      "Fotografa un brindisi di gruppo 📸",
-      "Scatta una foto in bagno🚽",
-      "Fatti fare una foto in manette di fianco alla sposa ⛓️"
-    ];
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const randomMission = missions[Math.floor(Math.random() * missions.length)];
-      document.getElementById("mission").textContent = randomMission;
-
-      const formBase = "https://docs.google.com/forms/d/e/1FAIpQLSfpuwSnhUWyxEOifRZ7sxDvObopeLPBiZIeZvls6Q33ZV4vUg/viewform?usp=pp_url";
-      const entryId = "entry.2126321792";
-      document.getElementById("uploadLink").href = `${formBase}&${entryId}=` + encodeURIComponent(randomMission);
-    });
-  </script>
-</head>
-<body>
-  <h1>🎉 Missione Segreta!</h1>
-  <div class="mission" id="mission"></div>
-
-  <a class="upload-btn" id="uploadLink" href="#" target="_blank">📸 Invia Foto</a>
-  <a class="gallery-btn" href="galleria.html">📷 Guarda la Galleria</a>
-
-  <p class="note">Scansiona di nuovo il QR code per ricevere una nuova missione ogni volta!</p>
-</body>
-</html>
-    ];
 
     document.addEventListener("DOMContentLoaded", () => {
       const randomMission = missions[Math.floor(Math.random() * missions.length)];
