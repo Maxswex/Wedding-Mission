@@ -1,0 +1,87 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 AppleColorEmoji;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="it">\
+<head>\
+  <meta charset="UTF-8" />\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\
+  <title>Missione Matrimonio!</title>\
+  <style>\
+    body \{\
+      font-family: sans-serif;\
+      text-align: center;\
+      padding: 2rem;\
+      background: #fff0f5;\
+    \}\
+    .mission \{\
+      font-size: 1.5rem;\
+      margin: 2rem 0;\
+      background: #ffe4e1;\
+      padding: 1rem;\
+      border-radius: 10px;\
+    \}\
+    .note \{\
+      font-size: 0.9rem;\
+      color: #555;\
+    \}\
+    .upload-btn \{\
+      background-color: #ff69b4;\
+      color: white;\
+      border: none;\
+      padding: 1rem 2rem;\
+      border-radius: 8px;\
+      font-size: 1rem;\
+      cursor: pointer;\
+      text-decoration: none;\
+      display: inline-block;\
+      margin-top: 1rem;\
+    \}\
+  </style>\
+</head>\
+<body>\
+  <h1>
+\f1 \uc0\u55356 \u57225 
+\f0  Missione Segreta!</h1>\
+  <div class="mission" id="mission"></div>\
+\
+  <a class="upload-btn" id="uploadLink" href="#" target="_blank">
+\f1 \uc0\u55357 \u56568 
+\f0  Invia Foto</a>\
+\
+  <p class="note">Torna in qualsiasi momento per vedere la tua missione. Sar\'e0 sempre la stessa su questo dispositivo!</p>\
+\
+  <script>\
+    const missions = [\
+      "Scatta una foto mentre baci la sposa!",\
+      "Fatti un selfie con almeno 3 persone che non conosci.",\
+      "Trova un bambino e balla con lui.",\
+      "Fotografa la torta prima che venga tagliata.",\
+      "Scatta una foto buffa con un cappello.",\
+      "Fai una foto al tavolo pi\'f9 rumoroso!",\
+      "Scatta una foto con uno zio o una zia che balla",\
+      "Fai un selfie con un cameriere",\
+      "Fotografa un brindisi di gruppo",\
+      "Scatta una foto di te con qualcosa rosa"\
+    ];\
+\
+    let storedMission = localStorage.getItem("missioneMatrimonio");\
+    if (!storedMission) \{\
+      const randomMission = missions[Math.floor(Math.random() * missions.length)];\
+      localStorage.setItem("missioneMatrimonio", randomMission);\
+      storedMission = randomMission;\
+    \}\
+\
+    document.getElementById("mission").textContent = storedMission;\
+\
+    // Precompila la missione come parametro nel link al modulo Google Form (se supportato)\
+    const formBaseURL = "https://docs.google.com/forms/d/e/1FAIpQLSfpuwSnhUWyxEOifRZ7sxDvObopeLPBiZIeZvls6Q33ZV4vUg/viewform";\
+    document.getElementById("uploadLink").href = formBaseURL;\
+  </script>\
+</body>\
+</html>\
+}
