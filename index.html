@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missione Matrimonio!</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background: #fff0f5;
+    }
+    .mission {
+      font-size: 1.5rem;
+      margin: 2rem 0;
+      background: #ffe4e1;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .upload-btn, .gallery-btn {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+  </style>
+  <script>
+    const missions = [
+      "Scatta una foto mentre baci la sposa!",
+      "Fatti un selfie con almeno 3 persone che non conosci.",
+      "Trova un bambino e balla con lui.",
+      "Fotografa la torta prima che venga tagliata.",
+      "Scatta una foto buffa con un cappello.",
+      "Fai una foto al tavolo più rumoroso!",
+      "Scatta una foto con uno zio o una zia che balla",
+      "Fai un selfie con un cameriere",
+      "Fotografa un brindisi di gruppo",
+      "Scatta una foto di te con qualcosa rosa"
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const randomMission = missions[Math.floor(Math.random() * missions.length)];
+      document.getElementById("mission").textContent = randomMission;
+
+      const formBase = "https://docs.google.com/forms/d/e/1FAIpQLSfpuwSnhUWyxEOifRZ7sxDvObopeLPBiZIeZvls6Q33ZV4vUg/viewform?usp=pp_url";
+      const entryId = "entry.2126321792";
+      document.getElementById("uploadLink").href = `${formBase}&${entryId}=` + encodeURIComponent(randomMission);
+    });
+  </script>
+</head>
+<body>
+  <h1>🎉 Missione Segreta!</h1>
+  <div class="mission" id="mission"></div>
+
+  <a class="upload-btn" id="uploadLink" href="#" target="_blank">📸 Invia Foto</a>
+  <a class="gallery-btn" href="galleria.html">📷 Guarda la Galleria</a>
+
+  <p class="note">Scansiona di nuovo il QR code per ricevere una nuova missione ogni volta!</p>
+</body>
+</html>
